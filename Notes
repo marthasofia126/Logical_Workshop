@@ -1,0 +1,27 @@
+Pause and Explain Section:
+Exercise 1:
+Would double hours = totalMinutes / 60; preserve the fractional part?
+- No, the program would read totalMinutes and "60" as int meaning that the output would be an int instead of a double.
+Since division happens before the assignment the result would be 2.00 rather than 2.25
+Prediction:
+- My prediction for 24 minutes is that it will show as 0 completed block and 24 remaining minutes since its less than the 25 minute block.
+
+Exercise 2:
+Why might a full name appear empty if you remove the first nextLine()?
+- It may appear empty since we are using next.Int() it only reads the integer and not the enter leaving a space in the input buffer.
+So, when the next.line() is called , it reads the leftover space as the input for the next.line()
+Why must you check emptiness before charAt(0)?
+- Because it will return a StringIndexOutOfBoundsException since there is not character at index 0
+
+Exercise 3:
+At a subtotal of 30, should a nonmember receive free delivery? What mistake would result from treating membership alone as sufficient?
+- No because the free delivery is applied only when the subtotal is greater than or equal to 30 and the person has a membership.
+Treating membership alone as sufficient would incorrectly give free delivery to members whose subtotal is less than $30, even though they do not meet the minimum purchase requirement.
+
+Exercise 4:
+Does break inside a switch end the surrounding loop? Which expression actually decides whether this loop repeats?
+- It does not end the surrounding loop it just exits the switch the expression that decides whether the loop repeats again is the "while (choice !=0);"
+
+Exercise 5:
+Why is testing balance != target unsafe here? What happens if deposits skip over the exact target?
+- It is unsafe because it will continue an infinite loop and skip over the exact target; the balance would never equal the target so the condition remains true.
