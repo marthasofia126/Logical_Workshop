@@ -8,7 +8,9 @@ public class PlayerConsistency {
             int score_number = Integer.parseInt(input.nextLine());
             scores[i] = score_number;
         }
-        System.out.println("Average of scores: " + average(scores));
+        System.out.printf("\nAverage of scores: %.2f", average(scores));
+        System.out.println("\n\nGAMES ABOVE AVERAGE");
+        validating(scores,aboveAverage(scores));
 
     }
     public static double average(int [] values){
@@ -21,8 +23,9 @@ public class PlayerConsistency {
     public static int [] aboveAverage(int [] values){
         int scores_above_average=0;
         int j = 0;
+        double average = average(values);
         for (int i = 0; i < values.length; i++) {
-            if (values[i] > average(values)){
+            if (values[i] > average){
                 scores_above_average+=1;
             }
         }
@@ -37,13 +40,25 @@ public class PlayerConsistency {
     }
 
     public static void validating(int [] values, int[] value){
+        int above_average_numbers=0;
         for (int i = 0; i < values.length; i++){
             for (int j = 0; j < value.length; j++){
                 if (values[i]==value[j]){
                     System.out.println("Game " + (i+1)+ ": " + value[j] + " points");
+                    above_average_numbers+=1;
                     break;
                 }
             }
+        }
+        System.out.println("\nTotal of above average games: " + above_average_numbers);
+        if (above_average_numbers >= 4 ){
+            System.out.println("Consistent performance");
+        } else if (above_average_numbers < 4 && above_average_numbers > 0) {
+            System.out.println("Needs more consistency");
+        } else {
+            System.out.println("""
+                    No games above average
+                    Needs more consistency""");
         }
     }
 }
