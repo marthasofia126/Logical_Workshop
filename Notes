@@ -25,3 +25,45 @@ Does break inside a switch end the surrounding loop? Which expression actually d
 Exercise 5:
 Why is testing balance != target unsafe here? What happens if deposits skip over the exact target?
 - It is unsafe because it will continue an infinite loop and skip over the exact target; the balance would never equal the target so the condition remains true.
+
+Exercise 6:
+Why does -3 need range validation even though parsing succeeds? Should 2.5 count as a whole number?
+- Because even though -3 is an valid integer it is not withing the established range. 2.5 should not count as a whole number since it is a decimal one.
+
+Two sentences distinguishing a conversion failure from a range failure
+The difference is that conversion failure is when the program cannot convert the users input into the required data type and a range failure is when
+the input is valid but it is not within the established range.
+
+Exercise 7:
+Why would i <= minutes.length fail? How does using > instead of >= when updating the maximum preserve the earliest-day rule?
+Using > preserves the earliest day because the maximum is updated only when a larger value is found, not when an equal value appears later
+
+Exercise 8:
+Why is −1 a useful not-found marker? Why would 0 be ambiguous?
+- -1 is a useful not found marker because the arrays start at position index 0 and not -1 so it cannot represent valid position in the array
+since 0 is a valid position it would be ambiguous.
+
+why stopping at the first match satisfies the duplicate-code rule?
+- Because the program is required to report only its first occurrence of a code, using a break after finding a match
+ensures that the earliest match is reported and ignores the duplicate that appears later.
+
+Exercise 9:
+What happens if rowTotal is initialized only once before the outer loop? Why must a column total combine values from different rows?
+if rowTotal is initialized once before the outer loop it will keep accumulating the values from previous rows rather than starting at zero for each new row.
+The reason of why must a column total combine values from different rows is because each row represents a different student and each column a different day
+
+Where does each accumulator resets?
+In my code accumulators are the following:
+1. total_per_student: Since it is located in the outer loop it resets to 0 at the beginning of each iteration of the outer loop
+2. total_per_day: It resets to 0 before calculating each new days total.
+3. grand_total: it is initialized to 0 at the start of the code and it does not reset inside a loop since I need to accumulate all the values from the array
+
+Exercise 10:
+Why is returning a number more reusable than printing it inside the calculation method? What does an average of an empty array mean mathematically?
+- Returning a number is more reusable other parts of the program can use the result for additional calculations, printing or comparisons.
+Additionally, the average of an empty array is undefined because there are no values to add, and calculating the average would require dividing the total (0) by the number of elements (0)\
+
+One sentence explaining each method’s input, result, and empty-array behavior
+1. sum(): Receives an integer array, returns the sum of all its elements, and returns 0 if the array is empty.
+2. countAtLeast(): Receives an integer array and a threshold, returns the number of values greater than or equal to that threshold, and returns 0 if the array is empty.
+3. average(): Receives an integer array, returns the decimal average of its elements, and throws an IllegalArgumentException if the array is empty
